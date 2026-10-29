@@ -660,6 +660,67 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 .offices span{font-size:.82rem;color:var(--muted)}
 .nav .dd>button.on{color:var(--ink);background:var(--surface-2)}
 @media (max-width:600px){#pbPanel li{grid-template-columns:minmax(0,1fr)!important;gap:6px!important}}
+
+/* ---- About: team cards with cursor effects ---- */
+.team-sec{position:relative}
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;perspective:1200px}
+@media (max-width:900px){.team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.team-grid{grid-template-columns:minmax(0,1fr)}}
+.tcard{all:unset;box-sizing:border-box;display:block;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--band);border:1px solid var(--line);cursor:pointer;transform-style:preserve-3d;transition:transform .25s ease-out,box-shadow .25s;will-change:transform;aspect-ratio:4/5;max-width:100%}
+.tcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.tcard:hover{box-shadow:var(--shadow-lg)}
+.tcard .photo{position:absolute;inset:0;filter:grayscale(1) contrast(1.05);transform:scale(1.02);transition:filter .45s ease,transform .6s ease}
+.tcard .photo svg{width:100%;height:100%;display:block}
+.tcard:hover .photo,.tcard:focus-visible .photo{filter:grayscale(0);transform:scale(1.07)}
+.tcard .glow{position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,30%),rgba(255,255,255,.22),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tcard:hover .glow{opacity:1}
+.tcard .meta{position:absolute;left:0;right:0;bottom:0;padding:20px;background:linear-gradient(transparent,rgba(5,8,26,.92) 55%);color:#F1F2FA;display:grid;gap:4px;transform:translateZ(30px)}
+.tcard .meta .nm{font-family:var(--f-display);font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.tcard .meta .rl{font-size:.85rem;color:#C9CCE6}
+.tcard .bio{display:grid;gap:10px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s ease,opacity .35s ease,margin .35s;font-size:.85rem;color:#D7D9EE}
+.tcard:hover .bio,.tcard:focus-visible .bio{max-height:160px;opacity:1;margin-top:8px}
+.tcard .tags{display:flex;flex-wrap:wrap;gap:6px}
+.tcard .tags span{font-family:var(--f-mono);font-size:.66rem;padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.12);color:#F1F2FA}
+.tcard .badge{position:absolute;top:14px;left:14px;font-family:var(--f-mono);font-size:.68rem;padding:4px 9px;border-radius:999px;background:rgba(5,8,26,.55);color:#F1F2FA;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.tcard .li{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:#F1F2FA;color:#0A0F27;display:grid;place-items:center;font-weight:800;font-size:.8rem;font-family:var(--f-body);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+.tcard:hover .li{opacity:1;transform:none}
+@media (hover:none){.tcard .bio{max-height:none;opacity:1;margin-top:6px}.tcard .bio p{display:none}.tcard .photo{filter:none}}
+.cursor-dot{position:fixed;left:0;top:0;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;text-align:center;font-weight:600;font-size:.78rem;line-height:1.2;pointer-events:none;z-index:70;transform:translate3d(-200px,-200px,0) scale(0);transition:scale .25s ease;opacity:.95}
+.cursor-dot.on{scale:1}
+.cursor-dot{scale:0}
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.cursor-dot{display:none}}
+
+/* light-follow on cards */
+.spot{position:relative;isolation:isolate}
+.spot::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 14%,transparent),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:-1}
+.spot:hover::before{opacity:1}
+
+/* profile panel */
+.profile{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:560px){.profile{grid-template-columns:minmax(0,1fr)}.profile .pp{max-width:200px}}
+.profile .pp{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.profile .pp svg{width:100%;height:100%;display:block}
+#profileModal .modal-box{max-width:640px}
+
+/* offices */
+.offices .ofc{display:grid;gap:6px}
+.offices .ofc .t{font-family:var(--f-mono);font-size:1.3rem;font-weight:500}
+.offices .ofc .city{font-weight:600}
+.offices.mini{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px}
+.offices.mini div{padding:12px}
+.offices.mini .t{font-size:1rem}
+
+/* contact */
+.routes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.routes{grid-template-columns:minmax(0,1fr)}}
+.route{display:grid;gap:14px;padding:24px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);text-decoration:none;align-content:start;transition:border-color .2s,transform .2s,box-shadow .2s}
+.route:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
+.route h3{margin-top:4px}
+.route p{color:var(--muted);font-size:.92rem;margin-top:4px}
+.route .go{color:var(--accent);font-weight:600;font-size:.9rem}
+.contact-card{display:grid;gap:14px;padding:28px;border-radius:var(--r-lg);background:var(--surface);border:1px solid var(--line)}
+.cdl li{display:grid;gap:4px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cdl li:last-child{border-bottom:0}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -707,10 +768,10 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <div class="dd"><button type="button" aria-haspopup="true" data-nav-grp="buyers">For buyers ▾</button>
         <div class="dd-menu"><a href="#find"><strong>Find a partner</strong><span>Accounting, data, AI and SaaS firms, checked</span></a><a href="#brief"><strong>Start a brief</strong><span>Free, about two minutes</span></a></div></div>
       <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
     </nav>
     <div class="top-cta">
-      <a class="btn btn-ghost btn-sm" href="#contact">Contact</a>
-      <a class="btn btn-primary btn-sm" href="#contact">Book a call <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-primary btn-sm" href="#book">Book a call <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
     </div>
     <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -720,7 +781,8 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     <a href="#find">Find a partner</a>
     <a href="#brief">Start a brief</a>
     <a href="#about">About</a>
-    <a href="#contact">Book a call</a>
+    <a href="#contact">Contact</a>
+    <a href="#book">Book a call</a>
   </nav>
 </header>
 
@@ -734,7 +796,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <a class="annc" href="#find"><b>FOR BUYERS</b><span>Looking for an outsourcing or tech partner? Start here →</span></a>
       <h1>Meetings with buyers <em>who need you now.</em></h1>
       <p class="lead">We watch for the signs that a company needs what you sell: a funding round, a job post that won’t fill, a new leader. We check each one by hand, reach the decision-maker and book the meeting. You take the call.</p>
-      <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Book a strategy call <svg width="18" height="18"><use href="#i-arrow"/></svg></a><button class="btn btn-ghost btn-lg" type="button" data-open="sampleModal">See a sample list</button></div>
+      <div class="actions"><a class="btn btn-primary btn-lg" href="#book">Book a strategy call <svg width="18" height="18"><use href="#i-arrow"/></svg></a><button class="btn btn-ghost btn-lg" type="button" data-open="sampleModal">See a sample list</button></div>
       <div class="sub-links"><span>Monthly plans</span><span>·</span><span>You own every contact</span><span>·</span><span>Weekly reports</span></div>
 
       <div class="shot">
@@ -1137,58 +1199,91 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 
 <!-- ================= ABOUT ================= -->
 <section class="page" id="p-about">
-  <div class="sec" data-note="ABOUT 1 · Short story. No hero image.">
-    <div class="wrap" style="max-width:860px">
-      <span class="eyebrow">About</span>
-      <h1 style="margin-top:16px;font-size:clamp(2.2rem,4.5vw,3.4rem)">We help good firms find good clients.</h1>
-      <p class="lead" style="margin-top:18px">Galacticbuzz is a research-first business development team. We work for B2B firms that sell across borders, most of them in accounting outsourcing, data sourcing, agentic AI and SaaS. We also help businesses abroad find partners they can trust. <span class="ph">founder story</span></p>
+  <div class="band hero-c" style="padding-bottom:clamp(56px,7vw,88px)" data-note="ABOUT 1 · Short story in the dark band. WordPress: one Bricks/Kadence section, text only.">
+    <div class="stars"></div>
+    <div class="orbit-deco" style="width:760px;height:760px;right:-340px;top:-260px"></div>
+    <div class="wrap">
+      <span class="eyebrow">About Galacticbuzz</span>
+      <h1 style="margin-top:16px;max-width:18ch">Good firms deserve <em>good clients.</em></h1>
+      <p class="lead">We started Galacticbuzz because skilled firms in accounting, data, AI and software kept losing to bigger names with bigger sales teams. We do the research and outreach those teams do, for firms that would rather spend their time on the work. <span class="ph">founder story</span></p>
     </div>
   </div>
-  <div class="sec" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="ABOUT 2 · How we work: three principles.">
+
+  <div class="sec" data-note="ABOUT 2 · How we work. Three principles.">
     <div class="wrap">
       <div class="sec-head"><span class="eyebrow">How we work</span><h2>Research first. People check everything.</h2></div>
       <div class="steps3">
-        <div class="step3"><h3>Rules before volume</h3><p>Every search starts with written rules. A company that breaks one is out, however good it looks.</p></div>
-        <div class="step3"><h3>Every rejection explained</h3><p>We log what we rejected and why, so you can trust what made the list.</p></div>
-        <div class="step3"><h3>Sources on every row</h3><p>Each result links to where we found it: job posts, news, directories, LinkedIn.</p></div>
+        <div class="step3 spot"><span class="n">01</span><h3>Rules before volume</h3><p>Every search starts with written rules. A company that breaks one is out, however good it looks.</p></div>
+        <div class="step3 spot"><span class="n">02</span><h3>Every rejection explained</h3><p>We log what we dropped and why, so you can trust what made the list.</p></div>
+        <div class="step3 spot"><span class="n">03</span><h3>Sources on every row</h3><p>Each result links to where we found it: job posts, funding news, directories, LinkedIn.</p></div>
       </div>
     </div>
   </div>
-  <div class="sec" data-note="ABOUT 3 · Team and offices. Real photos only.">
+
+  <div class="sec team-sec" id="team" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="ABOUT 3 · Team. Hover: card tilts toward the cursor, a light follows it, photo turns from black-and-white to colour, bio slides up, a round ‘View profile’ label follows the cursor. Click opens a profile panel. WordPress: Query Loop or Bricks loop on a ‘Team’ custom post type (photo, role, bio, LinkedIn, focus, languages) + ~40 lines of JS in WPCode. Effects switch off on touch screens and for reduced motion.">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Team</span><h2>The people you’ll work with.</h2></div>
-      <div class="grid g4">
-        <div class="team"><div class="avatar">AT</div><div><b>Amardeep Tanday</b><div class="small muted">Founder</div></div></div>
-        <div class="team"><div class="avatar">—</div><div><b>Team member</b><div class="small muted">Head of Research</div></div></div>
-        <div class="team"><div class="avatar">—</div><div><b>Team member</b><div class="small muted">BD Lead</div></div></div>
-        <div class="team"><div class="avatar">—</div><div><b>Team member</b><div class="small muted">Client Success</div></div></div>
+      <div class="sec-head" style="display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;max-width:none">
+        <div style="display:grid;gap:14px;max-width:640px"><span class="eyebrow">Team</span><h2>The people behind your pipeline.</h2><p class="lead">Researchers, BD leads and client success, across four time zones.</p></div>
+        <span class="ph">real photos, names and bios</span>
       </div>
-      <p class="xs muted" style="margin-top:12px"><span class="ph">photos, names and titles</span></p>
-      <div class="offices" style="margin-top:40px">
-        <div><b>India</b><span>Research &amp; BD team</span></div>
-        <div><b>USA</b><span>Client success</span></div>
-        <div><b>UK</b><span>UK &amp; EU outreach</span></div>
-        <div><b>UAE</b><span>Middle East outreach</span></div>
+      <div class="team-grid" id="teamGrid"></div>
+    </div>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"><span>View profile</span></div>
+  </div>
+
+  <div class="sec" data-note="ABOUT 4 · Values. Three short statements.">
+    <div class="wrap faq2">
+      <div><span class="eyebrow">What we hold ourselves to</span><h2 style="margin-top:14px">Our values.</h2></div>
+      <ul class="clean grid" style="gap:14px">
+        <li class="card spot"><b>Say no early.</b><p class="small muted" style="margin-top:6px">If a company or a firm doesn’t fit, we say so, with the reason.</p></li>
+        <li class="card spot"><b>Show the work.</b><p class="small muted" style="margin-top:6px">Signals, sources and rejection logs, not just a list of names.</p></li>
+        <li class="card spot"><b>Both sides win, or nobody does.</b><p class="small muted" style="margin-top:6px">A bad meeting wastes the buyer’s time and our client’s. We only book the ones we’d stand behind.</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="ABOUT 5 · Offices with live local time. WordPress: static cards; the clock is 6 lines of JS.">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Where we work</span><h2>Close to the markets we sell into.</h2></div>
+      <div class="offices" id="officeGrid"></div>
+      <p class="xs muted" style="margin-top:12px"><span class="ph">confirm office locations and addresses</span></p>
+    </div>
+  </div>
+
+  <div class="sec tight" data-note="ABOUT 6 · Careers line + call to action.">
+    <div class="wrap">
+      <div class="cta2 band"><div class="stars"></div>
+        <div><h2>Want to work with us?</h2><p class="lead" style="margin-top:10px">Clients: book a call. Researchers and BD people: say hello.</p></div>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#book">Book a call</a><a class="btn btn-ghost btn-lg" href="#message">Join the team</a></div>
       </div>
-      <p class="xs muted" style="margin-top:12px"><span class="ph">confirm locations</span></p>
     </div>
   </div>
 </section>
 
-<!-- ================= CONTACT / BOOK A CALL ================= -->
+<!-- ================= CONTACT ================= -->
 <section class="page" id="p-contact">
-  <div class="sec" data-note="CONTACT · Book a call (calendar embed) + short form. Success message replaces the form. Buyers are pointed to Find a partner.">
+  <div class="sec" style="padding-bottom:40px" data-note="CONTACT 1 · Header + three routes so each visitor lands on the right form. Same light-follow hover as the team cards.">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:36px"><span class="eyebrow">Contact</span><h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem)">Talk to a person.</h1><p class="lead">Pick what fits. We reply within one working day. <span class="ph">confirm</span></p></div>
+      <div class="routes">
+        <a class="route spot" href="#book"><span class="ico-b"><svg><use href="#i-cal"/></svg></span><div><span class="xs mono muted">FOR FIRMS</span><h3>Book a Virtual BD call</h3><p>30 minutes on your market and your best buyers.</p></div><span class="go">Pick a time →</span></a>
+        <a class="route spot" href="#brief"><span class="ico-b"><svg><use href="#i-search"/></svg></span><div><span class="xs mono muted">FOR BUYERS</span><h3>Find a partner</h3><p>Send a brief and get up to three checked firms.</p></div><span class="go">Start a brief →</span></a>
+        <a class="route spot" href="#message"><span class="ico-b"><svg><use href="#i-mail"/></svg></span><div><span class="xs mono muted">ANYTHING ELSE</span><h3>Send a message</h3><p>Partnerships, press, careers or a quick question.</p></div><span class="go">Write to us →</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="book" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="CONTACT 2 · Book a call. WordPress: Calendly or Cal.com inline embed on the left, Fluent Forms on the right; both post to the CRM.">
     <div class="wrap split" style="align-items:start">
       <div>
         <span class="eyebrow">Book a call</span>
-        <h1 style="margin-top:14px;font-size:clamp(2.2rem,4.5vw,3.2rem)">Talk to us about Virtual BD.</h1>
-        <p class="lead" style="margin-top:14px">30 minutes on your market, your best buyers and what a first target list would look like.</p>
+        <h2 style="margin-top:14px">Talk to us about Virtual BD.</h2>
+        <p class="lead" style="margin-top:14px">We’ll look at your market, your best buyers and what a first target list would contain.</p>
         <div class="card" style="margin-top:28px;display:grid;gap:16px">
           <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><b>Pick a time</b><span class="ph">Calendly embed</span></div>
           <div class="days" id="cDays"></div>
           <div class="slots" id="cSlots"></div>
         </div>
-        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center" class="small"><svg width="18" height="18" style="color:var(--accent)"><use href="#i-mail"/></svg><span class="mono" style="user-select:all">hello@galacticbuzz.com</span><button class="btn btn-ghost btn-sm" type="button" id="copyEmail">Copy</button><span class="ph">confirm</span></div>
       </div>
       <div>
         <form class="card raised" id="callForm" style="display:grid;gap:16px" novalidate>
@@ -1212,7 +1307,6 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
           </div>
           <p class="err" hidden></p>
           <button class="btn btn-primary btn-lg" type="submit">Book my call <svg width="18" height="18"><use href="#i-arrow"/></svg></button>
-          <p class="xs muted" style="text-align:center">Looking for a firm to hire instead? <a href="#find">Start a brief</a>.</p>
         </form>
         <div class="card raised done-panel" id="callDone" hidden>
           <span class="pill pass" style="justify-self:start;font-size:.78rem;padding:6px 12px"><svg width="14" height="14"><use href="#i-check"/></svg>Call booked</span>
@@ -1220,6 +1314,47 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
           <p class="muted">A calendar invite is on its way. If you can, send us your three best clients before the call so we can look for more like them.</p>
           <button class="btn btn-ghost" type="button" data-open="sampleModal" style="justify-self:start">Get the sample list</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="message" data-note="CONTACT 3 · General message form + contact details. WordPress: Fluent Forms (topic routes to the right inbox) + a static details card.">
+    <div class="wrap split" style="align-items:start">
+      <div>
+        <form class="card raised" id="msgForm" style="display:grid;gap:16px" novalidate>
+          <span class="eyebrow">Send a message</span>
+          <h3>How can we help?</h3>
+          <div class="field"><span class="lbl">Topic</span>
+            <div class="chips-pick">
+              <div class="pick"><input type="radio" name="topic" id="tp1" value="Partnership" checked><label for="tp1">Partnership</label></div>
+              <div class="pick"><input type="radio" name="topic" id="tp2" value="Careers"><label for="tp2">Careers</label></div>
+              <div class="pick"><input type="radio" name="topic" id="tp3" value="Press"><label for="tp3">Press</label></div>
+              <div class="pick"><input type="radio" name="topic" id="tp4" value="Something else"><label for="tp4">Something else</label></div>
+            </div></div>
+          <div class="row2">
+            <div class="field"><label for="g-name">Name</label><input class="input" id="g-name" data-req autocomplete="name"></div>
+            <div class="field"><label for="g-email">Email</label><input class="input" type="email" id="g-email" data-req autocomplete="email"></div>
+          </div>
+          <div class="field"><label for="g-msg">Message</label><textarea class="input" id="g-msg" data-req></textarea></div>
+          <p class="err" hidden></p>
+          <button class="btn btn-primary" type="submit" style="justify-self:start">Send message</button>
+        </form>
+        <div class="card raised done-panel" id="msgDone" hidden>
+          <span class="pill pass" style="justify-self:start;font-size:.78rem;padding:6px 12px"><svg width="14" height="14"><use href="#i-check"/></svg>Message sent</span>
+          <h3 style="font-size:1.6rem">Thanks. We’ll reply within one working day.</h3>
+          <button class="btn btn-ghost" type="button" id="msgAgain" style="justify-self:start">Send another</button>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Contact details</h3>
+        <ul class="clean cdl">
+          <li><span class="mono xs muted">EMAIL</span><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><b class="mono" style="user-select:all">hello@galacticbuzz.com</b><button class="btn btn-ghost btn-sm" type="button" id="copyEmail">Copy</button></div></li>
+          <li><span class="mono xs muted">PHONE / WHATSAPP</span><b class="mono" style="user-select:all">+00 00000 00000</b></li>
+          <li><span class="mono xs muted">LINKEDIN</span><a class="link-arrow" href="https://www.linkedin.com" target="_blank" rel="noopener">Galacticbuzz <svg width="14" height="14"><use href="#i-arrow"/></svg></a></li>
+          <li><span class="mono xs muted">HOURS</span><b>Mon–Fri, covering US, UK and Gulf business hours</b></li>
+        </ul>
+        <div class="offices mini" id="officeMini"></div>
+        <span class="ph" style="justify-self:start">real email, phone and addresses</span>
       </div>
     </div>
   </div>
@@ -1253,7 +1388,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <div><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
       <div><h5>Legal</h5><ul><li><a href="#legal">Privacy</a></li><li><a href="#legal">Terms</a></li></ul></div>
     </div>
-    <div class="foot-bottom"><span>© 2026 Galacticbuzz</span><span class="mono xs">Prototype v0.2</span></div>
+    <div class="foot-bottom"><span>© 2026 Galacticbuzz</span><span class="mono xs">Prototype v0.4</span></div>
   </div>
 </footer>
 
@@ -1271,6 +1406,10 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <button class="btn btn-primary" type="submit">Email me the PDF</button>
     </form>
   </div>
+</div>
+
+<div class="modal" id="profileModal" hidden role="dialog" aria-modal="true" aria-labelledby="pmName">
+  <div class="modal-box"><button class="modal-x" type="button" data-close aria-label="Close">×</button><div id="profileBody"></div></div>
 </div>
 
 <div class="notes-fab">
@@ -1374,7 +1513,7 @@ $('#sampleForm').addEventListener('submit',e=>{e.preventDefault();if(!validate(e
 $('#copyEmail').addEventListener('click',()=>{const t='hello@galacticbuzz.com';(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Email address copied'),()=>toast('Select the address to copy it'))});
 
 /* Modal, menu */
-document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){$('#'+o.dataset.open).hidden=false;setTimeout(()=>$('#sm-email').focus(),50)}if(e.target.closest('[data-close]')||e.target.classList.contains('modal'))$$('.modal').forEach(m=>m.hidden=true)});
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){$('#'+o.dataset.open).hidden=false;if(o.dataset.open==='sampleModal')setTimeout(()=>$('#sm-email').focus(),50)}if(e.target.closest('[data-close]')||e.target.classList.contains('modal'))$$('.modal').forEach(m=>m.hidden=true)});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal').forEach(m=>m.hidden=true)});
 const mb=$('#menuBtn'),mn=$('#mnav');mb.addEventListener('click',()=>{const o=mn.classList.toggle('open');mb.setAttribute('aria-expanded',o)});mn.addEventListener('click',e=>{if(e.target.closest('a')){mn.classList.remove('open');mb.setAttribute('aria-expanded',false)}});
 
@@ -1389,6 +1528,41 @@ const pp=$('#pagesPanel');pp.innerHTML='<h6>All pages ('+PAGES.length+')</h6>'+P
 $('#pagesBtn').addEventListener('click',e=>{pp.hidden=!pp.hidden;e.currentTarget.setAttribute('aria-expanded',!pp.hidden)});pp.addEventListener('click',e=>{if(e.target.closest('a'))pp.hidden=true});
 const nb=$('#notesBtn');function setNotes(on){document.body.classList.toggle('notes',on);nb.setAttribute('aria-pressed',on);store.set('gb-notes',on)}nb.addEventListener('click',()=>setNotes(!document.body.classList.contains('notes')));setNotes(!!store.get('gb-notes'));
 
+
+/* ---- Team ---- */
+const TEAM=[
+ {n:'Amardeep Tanday',r:'Founder',c:'#4A3AFF',i:'AT',tz:'IST',ask:['Sector playbooks','Client strategy'],bio:'Started Galacticbuzz to give specialist firms the research and outreach that big sales teams have.'},
+ {n:'Team member',r:'Head of Research',c:'#0F8A63',i:'HR',tz:'IST',ask:['Buying signals','Rejection rules'],bio:'Designs the rules and sources behind every target list, and signs off each one.'},
+ {n:'Team member',r:'BD Lead, North America',c:'#E89A12',i:'NA',tz:'ET',ask:['US CPA firms','Outreach timing'],bio:'Runs outreach into the US and Canada, and briefs clients before every meeting.'},
+ {n:'Team member',r:'Sector Lead, Data & AI',c:'#C93743',i:'DA',tz:'GMT',ask:['Selling to ML teams','Heads of Ops'],bio:'Builds the playbooks for data sourcing and agentic AI clients.'},
+ {n:'Team member',r:'Client Success',c:'#2B7FD8',i:'CS',tz:'GST',ask:['Onboarding','Weekly reports'],bio:'Your day-to-day contact: reports, feedback and changes to the plan.'},
+ {n:'Team member',r:'Research Analyst',c:'#7A4BD8',i:'RA',tz:'IST',ask:['Company checks','LinkedIn verification'],bio:'Checks every company and contact by hand before it reaches a list.'}];
+const portrait=(m,k)=>`<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${m.c}"/><stop offset="1" stop-color="#0A0F27"/></linearGradient></defs><rect width="400" height="500" fill="url(#g${k})"/><ellipse cx="200" cy="230" rx="260" ry="80" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="2" transform="rotate(-18 200 230)"/><circle cx="200" cy="190" r="74" fill="rgba(255,255,255,.30)"/><path d="M58 500C58 372 132 300 200 300S342 372 342 500Z" fill="rgba(255,255,255,.22)"/></svg>`;
+$('#teamGrid').innerHTML=TEAM.map((m,k)=>`<button class="tcard" type="button" data-k="${k}" aria-label="${m.n}, ${m.r}. View profile"><span class="photo">${portrait(m,k)}</span><span class="glow"></span><span class="badge">${m.tz}</span><span class="li">in</span><span class="meta"><span class="nm">${m.n}</span><span class="rl">${m.r}</span><span class="bio"><p>${m.bio}</p><span class="tags">${m.ask.map(a=>`<span>${a}</span>`).join('')}</span></span></span></button>`).join('');
+function openProfile(k){const m=TEAM[k];$('#profileBody').innerHTML=`<div class="profile"><div class="pp">${portrait(m,'p'+k)}</div><div style="display:grid;gap:12px"><span class="eyebrow">${m.r}</span><h3 id="pmName" style="font-size:1.7rem">${m.n}</h3><p class="muted">${m.bio}</p><div><span class="xs mono muted">ASK ME ABOUT</span><div class="regions" style="margin-top:6px">${m.ask.map(a=>`<span><i></i>${a}</span>`).join('')}</div></div><div><span class="xs mono muted">TIME ZONE</span><div>${m.tz}</div></div><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary btn-sm" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a><a class="btn btn-ghost btn-sm" href="#book" data-close>Book a call</a></div><span class="ph" style="justify-self:start">real bio</span></div></div>`;$('#profileModal').hidden=false}
+$('#teamGrid').addEventListener('click',e=>{const c=e.target.closest('.tcard');if(c)openProfile(+c.dataset.k)});
+
+/* ---- Cursor effects (desktop only) ---- */
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches;
+document.addEventListener('pointermove',e=>{const s=e.target.closest&&e.target.closest('.spot,.tcard');if(!s)return;const r=s.getBoundingClientRect();s.style.setProperty('--mx',(e.clientX-r.left)+'px');s.style.setProperty('--my',(e.clientY-r.top)+'px');
+ if(fine&&s.classList.contains('tcard')){const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;s.style.transform=`perspective(900px) rotateX(${(-y*8).toFixed(2)}deg) rotateY(${(x*8).toFixed(2)}deg)`}});
+document.addEventListener('pointerout',e=>{const s=e.target.closest&&e.target.closest('.tcard');if(s&&!s.contains(e.relatedTarget))s.style.transform=''});
+if(fine){const dot=$('#cursorDot');let tx=-200,ty=-200,cx=-200,cy=-200,run=false;
+ const loop=()=>{cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;dot.style.transform=`translate3d(${cx}px,${cy}px,0)`;if(Math.abs(tx-cx)>.3||Math.abs(ty-cy)>.3)requestAnimationFrame(loop);else run=false};
+ $('#teamGrid').addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY;const on=!!e.target.closest('.tcard');dot.classList.toggle('on',on);if(!run){run=true;requestAnimationFrame(loop)}});
+ $('#teamGrid').addEventListener('pointerleave',()=>dot.classList.remove('on'));}
+
+/* ---- Offices ---- */
+const OFF=[['Ahmedabad','India','Asia/Kolkata','Research & BD team'],['New York','USA','America/New_York','North America BD'],['London','UK','Europe/London','UK & EU outreach'],['Dubai','UAE','Asia/Dubai','Middle East outreach']];
+function offices(){const t=z=>{try{return new Date().toLocaleTimeString('en-US',{timeZone:z,hour:'numeric',minute:'2-digit'})}catch(e){return''}};
+ $('#officeGrid').innerHTML=OFF.map(([c,k,z,r])=>`<div class="ofc spot"><span class="xs mono muted">${k.toUpperCase()}</span><span class="city">${c}</span><span class="t">${t(z)}</span><span class="xs muted">${r}</span></div>`).join('');
+ $('#officeMini').innerHTML=OFF.map(([c,k,z])=>`<div class="ofc"><span class="city">${c}</span><span class="t">${t(z)}</span></div>`).join('')}
+offices();setInterval(offices,30000);
+
+/* ---- Message form ---- */
+$('#msgForm').addEventListener('submit',e=>{e.preventDefault();if(!validate(e.target,$('.err',e.target)))return;e.target.hidden=true;$('#msgDone').hidden=false});
+$('#msgAgain').addEventListener('click',()=>{$('#msgForm').reset();$('#msgForm').hidden=false;$('#msgDone').hidden=true});
+
 /* Router */
 const IDS=PAGES.map(p=>p[0]);
 function route(){let h=(location.hash||'#home').slice(1)||'home',target=null;
@@ -1396,6 +1570,7 @@ function route(){let h=(location.hash||'#home').slice(1)||'home',target=null;
  $$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+h));$$('[data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===h));$$('[data-pg]').forEach(a=>a.classList.toggle('on',a.dataset.pg===h));
  const sb=$('#mStickyBtn');if(h==='find'){sb.textContent='Start your brief';sb.href='#brief'}else{sb.textContent='Book a call';sb.href='#contact'}
  document.body.classList.toggle('no-sticky',h==='contact'||h==='brief');
+ $$('.cursor-dot').forEach(d=>d.classList.remove('on'));
  $$('[data-nav-grp]').forEach(b=>b.classList.toggle('on',(b.dataset.navGrp==='firms'&&(h==='home'||h==='services'))||(b.dataset.navGrp==='buyers'&&(h==='find'||h==='brief'))));
  if(h==='brief'&&pending){prefill(pending);pending=null}
  if(target)setTimeout(()=>target.scrollIntoView({block:'start'}),30);else window.scrollTo(0,0);setTimeout(fitAll,0)}
