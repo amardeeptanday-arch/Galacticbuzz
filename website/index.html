@@ -658,6 +658,8 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 .offices div{padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
 .offices b{display:block}
 .offices span{font-size:.82rem;color:var(--muted)}
+.nav .dd>button.on{color:var(--ink);background:var(--surface-2)}
+@media (max-width:600px){#pbPanel li{grid-template-columns:minmax(0,1fr)!important;gap:6px!important}}
 </style>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -687,6 +689,8 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
     <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M9 7V5a1 1 0 011-1h4a1 1 0 011 1v2M3 13h18"/></symbol>
     <symbol id="i-question" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M9.5 9.5a2.5 2.5 0 114 2c-.9.6-1.5 1.1-1.5 2.2M12 17h.01"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M19 16v4M17 18h4"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5"/></symbol>
     <symbol id="i-logo" viewBox="0 0 32 32"><circle cx="16" cy="16" r="7" fill="#4A3AFF"/><ellipse cx="16" cy="16" rx="14" ry="5.5" fill="none" stroke="#E89A12" stroke-width="2" transform="rotate(-24 16 16)"/><circle cx="27.4" cy="10.6" r="2.2" fill="#E89A12"/></symbol>
   </defs>
 </svg>
@@ -698,9 +702,10 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
   <div class="wrap">
     <a class="logo" href="#home" aria-label="Galacticbuzz home"><svg><use href="#i-logo"/></svg><span>galactic<b>buzz</b></span></a>
     <nav class="nav" aria-label="Main">
-      <a href="#home" data-nav="home">Virtual BD</a>
-      <a href="#find" data-nav="find">Find a partner</a>
-      <a href="#pricing" data-nav="pricing">Pricing</a>
+      <div class="dd"><button type="button" aria-haspopup="true" data-nav-grp="firms">For firms ▾</button>
+        <div class="dd-menu"><a href="#home"><strong>Virtual BD</strong><span>We find, check and book your buyers</span></a><a href="#services"><strong>Services &amp; pricing</strong><span>Research Sprint, Outbound, Dedicated Team</span></a></div></div>
+      <div class="dd"><button type="button" aria-haspopup="true" data-nav-grp="buyers">For buyers ▾</button>
+        <div class="dd-menu"><a href="#find"><strong>Find a partner</strong><span>Accounting, data, AI and SaaS firms, checked</span></a><a href="#brief"><strong>Start a brief</strong><span>Free, about two minutes</span></a></div></div>
       <a href="#about" data-nav="about">About</a>
     </nav>
     <div class="top-cta">
@@ -711,8 +716,9 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
   </div>
   <nav class="mnav" id="mnav" aria-label="Mobile">
     <a href="#home">Virtual BD</a>
+    <a href="#services">Services &amp; pricing</a>
     <a href="#find">Find a partner</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#brief">Start a brief</a>
     <a href="#about">About</a>
     <a href="#contact">Book a call</a>
   </nav>
@@ -725,15 +731,15 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
   <div class="band hero-c" data-note="HOME 1 · Hero for firms that want us as their BD team. Centered copy, product screen below (Linear / Attio style). Small link for buyers goes to Find a partner.">
     <div class="stars"></div>
     <div class="wrap">
-      <a class="annc" href="#find"><b>FOR BUYERS</b><span>Looking for an accounting or IT firm? Start here →</span></a>
-      <h1>Your business development team, <em>without the hiring.</em></h1>
-      <p class="lead">We find the right companies, check every one by hand, reach the decision-makers and book meetings on your calendar. You take the calls.</p>
+      <a class="annc" href="#find"><b>FOR BUYERS</b><span>Looking for an outsourcing or tech partner? Start here →</span></a>
+      <h1>Meetings with buyers <em>who need you now.</em></h1>
+      <p class="lead">We watch for the signs that a company needs what you sell: a funding round, a job post that won’t fill, a new leader. We check each one by hand, reach the decision-maker and book the meeting. You take the call.</p>
       <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Book a strategy call <svg width="18" height="18"><use href="#i-arrow"/></svg></a><button class="btn btn-ghost btn-lg" type="button" data-open="sampleModal">See a sample list</button></div>
       <div class="sub-links"><span>Monthly plans</span><span>·</span><span>You own every contact</span><span>·</span><span>Weekly reports</span></div>
 
       <div class="shot">
         <div class="app">
-          <div class="app-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">Galacticbuzz · Outbound · US CPA firms</span><span class="ph">sample</span></div>
+          <div class="app-bar"><span class="dots"><i></i><i></i><i></i></span><span class="ttl">Galacticbuzz · Outbound · Accounting outsourcing → US CPA firms</span><span class="ph">sample</span></div>
           <div class="dash2">
             <div class="dash-side"><span class="on">Pipeline</span><span>Target lists</span><span>Meetings</span><span>Reports</span><span>Settings</span></div>
             <div class="dash-main" style="display:grid;gap:14px">
@@ -757,12 +763,14 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     </div>
   </div>
 
-  <div class="sec tight" style="border-bottom:1px solid var(--line);padding-block:28px" data-note="HOME 2 · Who it’s for. One quiet line, no fake client logos.">
+  <div class="sec tight" style="border-bottom:1px solid var(--line);padding-block:28px" data-note="HOME 2 · Our four core sectors. One quiet line instead of fake client logos.">
     <div class="wrap strip">
-      <span class="lbl">Built for</span>
-      <span><svg><use href="#i-ledger"/></svg>Accounting &amp; bookkeeping firms</span>
-      <span><svg><use href="#i-code"/></svg>IT &amp; software services</span>
-      <span><svg><use href="#i-briefcase"/></svg>Consultants &amp; fractional leaders</span>
+      <span class="lbl">Where we do our best work</span>
+      <span><svg><use href="#i-ledger"/></svg>Accounting outsourcing</span>
+      <span><svg><use href="#i-data"/></svg>Data sourcing</span>
+      <span><svg><use href="#i-spark"/></svg>Agentic AI</span>
+      <span><svg><use href="#i-layers"/></svg>SaaS platforms</span>
+      <a href="#playbooks" class="small" style="color:var(--accent);font-weight:600;text-decoration:none">+ other B2B services</a>
     </div>
   </div>
 
@@ -771,9 +779,17 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <div class="sec-head"><span class="eyebrow">How it works</span><h2>Three steps to a steady pipeline.</h2></div>
       <div class="steps3">
         <div class="step3"><span class="n">STEP 1</span><h3>Tell us who you sell to</h3><p>A 30-minute call on your services, your best clients and the rules a target must pass.</p></div>
-        <div class="step3"><span class="n">STEP 2</span><h3>We research and check</h3><p>We build the list, check each company and contact by hand, and note why we rejected the rest.</p></div>
+        <div class="step3"><span class="n">STEP 2</span><h3>We research and check</h3><p>We track buying signals, check each company and contact by hand, and log why we rejected the rest.</p></div>
         <div class="step3"><span class="n">STEP 3</span><h3>We reach out and book</h3><p>Outreach on LinkedIn, email and phone in your voice. Meetings go straight onto your calendar.</p></div>
       </div>
+    </div>
+  </div>
+
+  <div class="sec" id="playbooks" style="background:var(--surface);border-top:1px solid var(--line)" data-note="HOME 3b · Sector playbooks. Tabs per sector: who we target, signals we watch, rules, an example opening line. This is what makes us specific, not generic.">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Playbooks</span><h2>A different hunt for every sector.</h2><p class="lead">Each sector buys for different reasons. These are the signals we start with. We tune them with you in the first call.</p></div>
+      <div class="tabs" role="tablist" id="pbTabs"></div>
+      <div id="pbPanel"></div>
     </div>
   </div>
 
@@ -782,16 +798,17 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
       <div class="sec-head"><span class="eyebrow">What you get</span><h2>Everything an in-house BD team does.</h2></div>
       <div class="bento">
         <div class="tile t4">
-          <h3>Target lists checked by people</h3>
-          <p>Every company is checked against your rules. You see what passed, what didn’t, and why.</p>
+          <h3>Every company has a reason to talk</h3>
+          <p>Each row shows the signal we found, or why we dropped it. Sample rows from four different clients.</p>
           <div class="viz tlist-wrap">
             <div class="scroll-x">
               <table class="tlist">
-                <thead><tr><th>Company</th><th>Staff</th><th>Contact</th><th>Result</th><th>Reason</th></tr></thead>
+                <thead><tr><th>Company</th><th>For</th><th>Contact</th><th>Result</th><th>Signal or reason</th></tr></thead>
                 <tbody>
-                  <tr><td><b>Halvorsen CPA</b></td><td class="mono">34</td><td>Managing Partner</td><td><span class="pill pass">Pass</span></td><td class="why">Hiring 2 accountants; no offshore partner</td></tr>
-                  <tr><td><b>Brightline Tax</b></td><td class="mono">18</td><td>Founder, CPA</td><td><span class="pill likely">Check</span></td><td class="why">Confirm headcount first</td></tr>
-                  <tr><td><b>Ridge Partners</b></td><td class="mono">210</td><td>COO</td><td><span class="pill reject">Rejected</span></td><td class="why">Already has an offshore team</td></tr>
+                  <tr><td><b>Northwind Freight</b><div class="xs muted">640 staff</div></td><td class="xs">Agentic AI</td><td>COO</td><td><span class="pill pass">Pass</span></td><td class="why">Hiring 14 claims processors this quarter</td></tr>
+                  <tr><td><b>Halvorsen CPA</b><div class="xs muted">34 staff</div></td><td class="xs">Accounting</td><td>Managing Partner</td><td><span class="pill pass">Pass</span></td><td class="why">Staff accountant role open 9 weeks</td></tr>
+                  <tr><td><b>Vectra Labs</b><div class="xs muted">85 staff</div></td><td class="xs">Data sourcing</td><td>Head of Data</td><td><span class="pill likely">Check</span></td><td class="why">Series A in Sep; confirm they buy data</td></tr>
+                  <tr><td><b>Ridge Partners</b><div class="xs muted">210 staff</div></td><td class="xs">Accounting</td><td>COO</td><td><span class="pill reject">Rejected</span></td><td class="why">Already runs an offshore team</td></tr>
                 </tbody>
               </table>
             </div>
@@ -830,14 +847,6 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     </div>
   </div>
 
-  <div class="sec" data-note="HOME 5 · Plans preview. Three cards; full detail on Pricing.">
-    <div class="wrap">
-      <div class="sec-head center"><span class="eyebrow">Plans</span><h2>Start small. Grow what works.</h2></div>
-      <div class="plans compact" id="homePlans"></div>
-      <p class="note-line"><a href="#pricing">Compare plans</a> · Prices in USD</p>
-    </div>
-  </div>
-
   <div class="sec tight" data-note="HOME 6 · One testimonial. Placeholder until a real client agrees to be quoted.">
     <div class="wrap">
       <div class="quote-band">
@@ -849,7 +858,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 
   <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="HOME 7 · FAQ in two columns: heading left, questions right.">
     <div class="wrap faq2">
-      <div><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Common questions.</h2><p class="muted" style="margin-top:14px">Something else? <a href="#contact">Ask us</a>.</p></div>
+      <div><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Common questions.</h2><p class="muted" style="margin-top:14px">Plans and prices are on <a href="#services">Services &amp; pricing</a>.</p></div>
       <div class="faq">
         <details open><summary>Who sends the outreach?</summary><p>We can send from a separate domain set up for you, or from your team’s inboxes and LinkedIn profiles. Most clients start with a separate domain.</p></details>
         <details><summary>Do you take the sales calls?</summary><p>No. We book qualified meetings and brief you on each buyer. Your team runs the call.</p></details>
@@ -863,7 +872,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     <div class="wrap">
       <div class="cta2 band"><div class="stars"></div>
         <div><h2>Let’s find your next clients.</h2><p class="lead" style="margin-top:10px">A 30-minute call. No obligation.</p></div>
-        <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Book a call</a><button class="btn btn-ghost btn-lg" type="button" data-open="sampleModal">Sample list</button></div>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#contact">Book a call</a><a class="btn btn-ghost btn-lg" href="#services">Services &amp; pricing</a></div>
       </div>
     </div>
   </div>
@@ -871,16 +880,16 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 
 <!-- ================= FIND A PARTNER (BUYERS) ================= -->
 <section class="page" id="p-find">
-  <div class="band hero" style="padding-block:clamp(48px,6vw,80px)" data-note="FIND 1 · For businesses abroad looking for an accounting or IT firm. Sentence brief jumps to the form below with answers filled in.">
+  <div class="band hero" style="padding-block:clamp(48px,6vw,80px)" data-note="FIND 1 · For businesses abroad looking for a partner in our four sectors (or anything else). Sentence brief jumps to the form below with answers filled in.">
     <div class="stars"></div>
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">For businesses in the US, UK, Australia and beyond</span>
-        <h1 style="margin-top:16px;font-size:clamp(2.2rem,4.6vw,3.6rem)">Find an accounting or IT firm <em>you can trust.</em></h1>
-        <p class="lead">Tell us what you need. We check firms for you and introduce you to up to three that fit. Free for buyers.</p>
+        <h1 style="margin-top:16px;font-size:clamp(2.2rem,4.6vw,3.6rem)">Find a partner you’d <em>actually</em> hire.</h1>
+        <p class="lead">Accounting teams, data providers, AI automation builders and SaaS developers. Tell us the job; we check the firms and introduce up to three that fit. Free for buyers.</p>
         <form class="sentence" id="heroBrief" autocomplete="off">
           I need
-          <select id="hb-svc" aria-label="Service"><optgroup label="Accounting"><option data-cat="accounting">bookkeeping</option><option data-cat="accounting">tax preparation</option><option data-cat="accounting">payroll</option><option data-cat="accounting">month-end close</option></optgroup><optgroup label="IT"><option data-cat="it">software development</option><option data-cat="it">QA &amp; testing</option><option data-cat="it">cloud &amp; DevOps</option><option data-cat="it">IT support</option></optgroup></select>
+          <select id="hb-svc" aria-label="Service"><optgroup label="Accounting outsourcing"><option data-cat="accounting">bookkeeping</option><option data-cat="accounting">tax preparation</option><option data-cat="accounting">payroll</option></optgroup><optgroup label="Data sourcing"><option data-cat="data">training data</option><option data-cat="data">data labelling</option><option data-cat="data">B2B data enrichment</option></optgroup><optgroup label="Agentic AI"><option data-cat="ai">an AI agent for back-office work</option><option data-cat="ai">workflow automation</option></optgroup><optgroup label="SaaS &amp; software"><option data-cat="saas">a SaaS product build</option><option data-cat="saas">QA &amp; testing</option><option data-cat="saas">cloud &amp; DevOps</option></optgroup></select>
           for my business in
           <select id="hb-country" aria-label="Country"><option>the USA</option><option>the UK</option><option>Canada</option><option>Australia</option><option>the UAE</option><option>another country</option></select>.
           <div class="sentence-foot"><span class="muted">About 2 minutes</span><button class="btn btn-primary btn-lg" type="submit">Start my brief <svg width="18" height="18"><use href="#i-arrow"/></svg></button></div>
@@ -911,12 +920,14 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     </div>
   </div>
 
-  <div class="sec" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="FIND 3 · Two categories + how we check firms, side by side in one section.">
+  <div class="sec" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="FIND 3 · Four specialties + how we check firms, in one bento section.">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">What we cover</span><h2>Accounting and IT. That’s all we do.</h2></div>
+      <div class="sec-head"><span class="eyebrow">What we cover</span><h2>Four specialties. Other requests welcome.</h2><p class="lead">These are the areas where we know the firms best. Need something else? Describe it in your brief.</p></div>
       <div class="bento">
-        <div class="tile t3"><span class="ico-b"><svg><use href="#i-ledger"/></svg></span><h3>Accounting &amp; Finance</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>Bookkeeping</span><span>Tax preparation</span><span>CPA back-office</span><span>Payroll</span><span>AP / AR</span><span>Month-end close</span><span>FP&amp;A</span></div></div><p class="xs mono">QuickBooks · Xero · NetSuite · Sage · Gusto</p></div>
-        <div class="tile t3"><span class="ico-b"><svg><use href="#i-code"/></svg></span><h3>IT &amp; Software</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>Custom software</span><span>Web &amp; mobile</span><span>QA &amp; testing</span><span>Cloud &amp; DevOps</span><span>IT support</span><span>Data &amp; AI</span></div></div><p class="xs mono">NDA · IP assignment · SOC 2 on request</p></div>
+        <div class="tile t3"><span class="ico-b"><svg><use href="#i-ledger"/></svg></span><h3>Accounting outsourcing</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>Bookkeeping</span><span>Tax preparation</span><span>CPA back-office</span><span>Payroll</span><span>Month-end close</span></div></div><p class="xs mono">QuickBooks · Xero · NetSuite · UltraTax</p></div>
+        <div class="tile t3"><span class="ico-b"><svg><use href="#i-data"/></svg></span><h3>Data sourcing</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>AI training data</span><span>Labelling &amp; annotation</span><span>Web data collection</span><span>B2B data enrichment</span></div></div><p class="xs mono">Quality sampling · licensing checked · GDPR</p></div>
+        <div class="tile t3"><span class="ico-b"><svg><use href="#i-spark"/></svg></span><h3>Agentic AI</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>Back-office AI agents</span><span>Document processing</span><span>Support automation</span><span>Workflow integration</span></div></div><p class="xs mono">Human review built in · runs on your systems</p></div>
+        <div class="tile t3"><span class="ico-b"><svg><use href="#i-layers"/></svg></span><h3>SaaS &amp; software</h3><div class="cat2"><div class="chips" style="grid-column:1/-1"><span>Product builds</span><span>Team extension</span><span>QA &amp; testing</span><span>Cloud &amp; DevOps</span></div></div><p class="xs mono">NDA · IP assignment · SOC 2 on request</p></div>
         <div class="tile t4">
           <h3>How we check every firm</h3>
           <p>Before a firm reaches your shortlist, we check four things. You see the results with each introduction.</p>
@@ -935,9 +946,32 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     </div>
   </div>
 
-  <div class="sec" id="brief" data-note="FIND 4 · The brief: 3 steps (Fluent Forms multi-step). Summary panel fills in live. Success state replaces the form.">
+  <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="FIND 5 · Buyer FAQ.">
+    <div class="wrap faq2">
+      <div><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Questions from buyers.</h2></div>
+      <div class="faq">
+        <details open><summary>Is it really free?</summary><p>Yes. Firms pay to be in our network. You agree fees directly with the firm you hire.</p></details>
+        <details><summary>Who sees my brief?</summary><p>Only our team, and then only the firms on your shortlist. We don’t sell or publish briefs.</p></details>
+        <details><summary>What if none of the firms fit?</summary><p>Tell us why and we’ll look again.</p></details>
+        <details><summary>Do the firms work on our hours?</summary><p>You set the overlap you need, and we only suggest firms that can meet it.</p></details>
+      </div>
+    </div>
+  </div>
+  <div class="sec tight" data-note="FIND 6 · Closing call to action to the brief page.">
     <div class="wrap">
-      <div class="sec-head"><span class="eyebrow">Your brief</span><h2>Tell us what you need.</h2></div>
+      <div class="cta2 band"><div class="stars"></div>
+        <div><h2>Tell us the job.</h2><p class="lead" style="margin-top:10px">Three short steps. Free. No phone number needed.</p></div>
+        <div class="actions"><a class="btn btn-primary btn-lg" href="#brief">Start your brief</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BRIEF (BUYERS, PAGE 2) ================= -->
+<section class="page" id="p-brief">
+  <div class="sec" data-note="BRIEF · Second buyer page. 3 steps (Fluent Forms multi-step). Summary panel fills in live. Success state replaces the form.">
+    <div class="wrap">
+      <div class="sec-head"><a class="link-arrow small" href="#find" style="margin-bottom:6px"><svg width="14" height="14" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>Find a partner</a><h1 style="font-size:clamp(2rem,4vw,2.8rem)">Start your brief.</h1><p class="lead">About two minutes. A person on our team reads every brief.</p></div>
       <div class="wiz-layout">
         <div id="briefBox">
         <form class="wiz" id="matchWiz" novalidate>
@@ -949,9 +983,11 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
             <div class="wstep" data-step="1">
               <h3>What do you need help with?</h3>
               <div class="cards-pick">
-                <div class="pick"><input type="radio" name="cat" id="m-cat-acc" value="accounting" data-sum="Accounting & Finance"><label for="m-cat-acc"><span class="ico"><svg><use href="#i-ledger"/></svg></span><b>Accounting &amp; Finance</b></label></div>
-                <div class="pick"><input type="radio" name="cat" id="m-cat-it" value="it" data-sum="IT & Software"><label for="m-cat-it"><span class="ico"><svg><use href="#i-code"/></svg></span><b>IT &amp; Software</b></label></div>
-                <div class="pick"><input type="radio" name="cat" id="m-cat-ns" value="unsure" data-sum="Not sure yet"><label for="m-cat-ns"><span class="ico"><svg><use href="#i-question"/></svg></span><b>Not sure yet</b></label></div>
+                <div class="pick"><input type="radio" name="cat" id="m-cat-accounting" value="accounting" data-sum="Accounting outsourcing"><label for="m-cat-accounting"><span class="ico"><svg><use href="#i-ledger"/></svg></span><b>Accounting outsourcing</b></label></div>
+                <div class="pick"><input type="radio" name="cat" id="m-cat-data" value="data" data-sum="Data sourcing"><label for="m-cat-data"><span class="ico"><svg><use href="#i-data"/></svg></span><b>Data sourcing</b></label></div>
+                <div class="pick"><input type="radio" name="cat" id="m-cat-ai" value="ai" data-sum="Agentic AI"><label for="m-cat-ai"><span class="ico"><svg><use href="#i-spark"/></svg></span><b>Agentic AI</b></label></div>
+                <div class="pick"><input type="radio" name="cat" id="m-cat-saas" value="saas" data-sum="SaaS & software"><label for="m-cat-saas"><span class="ico"><svg><use href="#i-layers"/></svg></span><b>SaaS &amp; software</b></label></div>
+                <div class="pick"><input type="radio" name="cat" id="m-cat-other" value="other" data-sum="Something else"><label for="m-cat-other"><span class="ico"><svg><use href="#i-question"/></svg></span><b>Something else</b></label></div>
               </div>
               <div class="field" data-show-if="cat=accounting"><span class="lbl">Services</span>
                 <div class="chips-pick">
@@ -959,17 +995,30 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
                   <div class="pick"><input type="checkbox" name="svc" id="s2" value="Tax preparation"><label for="s2">Tax preparation</label></div>
                   <div class="pick"><input type="checkbox" name="svc" id="s3" value="CPA back-office"><label for="s3">CPA back-office</label></div>
                   <div class="pick"><input type="checkbox" name="svc" id="s4" value="Payroll"><label for="s4">Payroll</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s5" value="AP/AR"><label for="s5">AP/AR</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s6" value="Month-end close"><label for="s6">Month-end close</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s5" value="Month-end close"><label for="s5">Month-end close</label></div>
                 </div></div>
-              <div class="field" data-show-if="cat=it"><span class="lbl">Services</span>
+              <div class="field" data-show-if="cat=data"><span class="lbl">Services</span>
                 <div class="chips-pick">
-                  <div class="pick"><input type="checkbox" name="svc" id="s8" value="Custom software"><label for="s8">Custom software</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s9" value="Web & mobile"><label for="s9">Web &amp; mobile</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s10" value="QA & testing"><label for="s10">QA &amp; testing</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s11" value="Cloud & DevOps"><label for="s11">Cloud &amp; DevOps</label></div>
-                  <div class="pick"><input type="checkbox" name="svc" id="s12" value="IT support"><label for="s12">IT support</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s10" value="Training data"><label for="s10">Training data</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s11" value="Data labelling"><label for="s11">Data labelling</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s12" value="Web data collection"><label for="s12">Web data collection</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s13" value="B2B data enrichment"><label for="s13">B2B data enrichment</label></div>
                 </div></div>
+              <div class="field" data-show-if="cat=ai"><span class="lbl">Services</span>
+                <div class="chips-pick">
+                  <div class="pick"><input type="checkbox" name="svc" id="s20" value="AI agent for back-office work"><label for="s20">AI agent for back-office work</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s21" value="Document processing"><label for="s21">Document processing</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s22" value="Support automation"><label for="s22">Support automation</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s23" value="Workflow automation"><label for="s23">Workflow automation</label></div>
+                </div></div>
+              <div class="field" data-show-if="cat=saas"><span class="lbl">Services</span>
+                <div class="chips-pick">
+                  <div class="pick"><input type="checkbox" name="svc" id="s30" value="SaaS product build"><label for="s30">SaaS product build</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s31" value="Team extension"><label for="s31">Team extension</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s32" value="QA & testing"><label for="s32">QA &amp; testing</label></div>
+                  <div class="pick"><input type="checkbox" name="svc" id="s33" value="Cloud & DevOps"><label for="s33">Cloud &amp; DevOps</label></div>
+                </div></div>
+              <div class="field" data-show-if="cat=other"><label for="m-other">What do you need?</label><input class="input" id="m-other" name="other" placeholder="e.g. a market research team, a recruitment partner"></div>
             </div>
             <div class="wstep" data-step="2">
               <h3>A few details</h3>
@@ -1042,44 +1091,45 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     </div>
   </div>
 
-  <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="FIND 5 · Buyer FAQ.">
-    <div class="wrap faq2">
-      <div><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Questions from buyers.</h2></div>
-      <div class="faq">
-        <details open><summary>Is it really free?</summary><p>Yes. Firms pay to be in our network. You agree fees directly with the firm you hire.</p></details>
-        <details><summary>Who sees my brief?</summary><p>Only our team, and then only the firms on your shortlist. We don’t sell or publish briefs.</p></details>
-        <details><summary>What if none of the firms fit?</summary><p>Tell us why and we’ll look again.</p></details>
-        <details><summary>Do the firms work on our hours?</summary><p>You set the overlap you need, and we only suggest firms that can meet it.</p></details>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- ================= PRICING ================= -->
-<section class="page" id="p-pricing">
-  <div class="sec" style="padding-bottom:32px" data-note="PRICING 1 · Short header on a light background.">
+<!-- ================= SERVICES & PRICING (FIRMS, PAGE 2) ================= -->
+<section class="page" id="p-services">
+  <div class="sec" style="padding-bottom:32px" data-note="SERVICES 1 · Second firm page: services and pricing together. Short header.">
     <div class="wrap sec-head center" style="margin-bottom:0">
-      <span class="eyebrow">Pricing</span>
-      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem)">Simple plans for Virtual BD.</h1>
-      <p class="lead">Buyers looking for a firm never pay. <a href="#find">Find a partner →</a></p>
+      <span class="eyebrow">Services &amp; pricing</span>
+      <h1 style="font-size:clamp(2.2rem,4.5vw,3.4rem)">Three ways to work with us.</h1>
+      <p class="lead">Start with one researched list, or hand us the whole top of your funnel.</p>
     </div>
   </div>
-  <div class="sec tight" style="padding-top:16px" data-note="PRICING 2 · Three plans. Prices to come from Galacticbuzz.">
+  <div class="sec tight" style="padding-top:16px" data-note="SERVICES 2 · Three services as plan cards. Prices to come from Galacticbuzz.">
     <div class="wrap"><div class="plans" id="pricePlans"></div></div>
   </div>
-  <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="PRICING 3 · Comparison table.">
+  <div class="sec" style="background:var(--surface);border-block:1px solid var(--line)" data-note="SERVICES 3 · Comparison table.">
     <div class="wrap">
       <div class="sec-head center"><h2>Compare plans</h2></div>
       <div class="scroll-x"><table class="ctable" id="planTable"></table></div>
     </div>
   </div>
-  <div class="sec" data-note="PRICING 4 · Billing FAQ.">
+  <div class="sec" data-note="SERVICES 4 · What the first month looks like. Week-by-week.">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">Your first month</span><h2>What happens, week by week.</h2></div>
+      <ol class="clean hproc" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+        <li><span class="n">WEEK 1</span><h4>Playbook call</h4><p>We agree your buyers, the signals to watch and the rules a company must pass.</p></li>
+        <li><span class="n">WEEK 2</span><h4>First list</h4><p>You review the first 40 companies, with the reason each passed or failed.</p></li>
+        <li><span class="n">WEEK 3</span><h4>Outreach starts</h4><p>Messages you approved go out on LinkedIn, email and phone.</p></li>
+        <li><span class="n">WEEK 4</span><h4>First report</h4><p>Replies, meetings and what we change for month two.</p></li>
+      </ol>
+    </div>
+  </div>
+  <div class="sec" data-note="SERVICES 5 · Billing FAQ.">
     <div class="wrap faq2">
       <div><span class="eyebrow">Billing</span><h2 style="margin-top:14px">Billing questions.</h2></div>
       <div class="faq">
         <details open><summary>How do I pay?</summary><p>Card or bank transfer, billed monthly in USD.</p></details>
         <details><summary>Can I change plans?</summary><p>Yes, at the end of any month after the pilot.</p></details>
         <details><summary>Is there a setup fee?</summary><p><span class="ph">to confirm</span></p></details>
+        <details><summary>Do buyers pay anything?</summary><p>No. Businesses looking for a partner use Galacticbuzz for free. <a href="#find">Find a partner →</a></p></details>
       </div>
     </div>
   </div>
@@ -1091,7 +1141,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
     <div class="wrap" style="max-width:860px">
       <span class="eyebrow">About</span>
       <h1 style="margin-top:16px;font-size:clamp(2.2rem,4.5vw,3.4rem)">We help good firms find good clients.</h1>
-      <p class="lead" style="margin-top:18px">Galacticbuzz is a research-first business development team. We work for accounting and IT firms that want clients abroad, and we help businesses abroad find firms they can trust. <span class="ph">founder story</span></p>
+      <p class="lead" style="margin-top:18px">Galacticbuzz is a research-first business development team. We work for B2B firms that sell across borders, most of them in accounting outsourcing, data sourcing, agentic AI and SaaS. We also help businesses abroad find partners they can trust. <span class="ph">founder story</span></p>
     </div>
   </div>
   <div class="sec" style="background:var(--surface-2);border-block:1px solid var(--line)" data-note="ABOUT 2 · How we work: three principles.">
@@ -1147,7 +1197,7 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
             <div class="field"><label for="v-firm">Firm name</label><input class="input" id="v-firm" placeholder="Ledgerline Partners" data-req></div>
             <div class="field"><label for="v-web">Website</label><input class="input" id="v-web" placeholder="ledgerline.in"></div>
           </div>
-          <div class="field"><label for="v-svc">What you sell</label><select class="input" id="v-svc" data-req><option value="">Choose…</option><option>Accounting &amp; bookkeeping</option><option>Tax preparation</option><option>Software development</option><option>QA &amp; testing</option><option>IT support</option><option>Consulting</option></select></div>
+          <div class="field"><label for="v-svc">What you sell</label><select class="input" id="v-svc" data-req><option value="">Choose…</option><option>Accounting outsourcing</option><option>Data sourcing &amp; labelling</option><option>Agentic AI &amp; automation</option><option>SaaS platform</option><option>Software &amp; IT services</option><option>Other B2B service</option></select></div>
           <div class="field"><span class="lbl">Where do you want clients?</span>
             <div class="chips-pick">
               <div class="pick"><input type="checkbox" id="vr1"><label for="vr1">USA &amp; Canada</label></div>
@@ -1193,12 +1243,13 @@ body.notes [data-note]::after{content:attr(data-note);position:absolute;top:8px;
 
 <footer data-note="FOOTER · Compact: brand, three link columns, legal row.">
   <div class="wrap">
-    <div class="foot-grid" style="grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr))">
+    <div class="foot-grid" style="grid-template-columns:minmax(0,1.6fr) repeat(4,minmax(0,1fr))">
       <div class="foot-brand">
         <a class="logo" href="#home"><svg><use href="#i-logo"/></svg><span>galactic<b>buzz</b></span></a>
-        <p class="small muted" style="margin-top:14px;max-width:34ch">Virtual business development for accounting and IT firms. Trusted introductions for the businesses that hire them.</p>
+        <p class="small muted" style="margin-top:14px;max-width:34ch">Virtual business development for accounting outsourcing, data sourcing, agentic AI and SaaS firms. Checked introductions for the businesses that hire them.</p>
       </div>
-      <div><h5>Product</h5><ul><li><a href="#home">Virtual BD</a></li><li><a href="#find">Find a partner</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+      <div><h5>For firms</h5><ul><li><a href="#home">Virtual BD</a></li><li><a href="#services">Services &amp; pricing</a></li></ul></div>
+      <div><h5>For buyers</h5><ul><li><a href="#find">Find a partner</a></li><li><a href="#brief">Start a brief</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
       <div><h5>Legal</h5><ul><li><a href="#legal">Privacy</a></li><li><a href="#legal">Terms</a></li></ul></div>
     </div>
@@ -1242,11 +1293,39 @@ const PLANS={
  engine:{n:'Outbound',p:'from $X,XXX',per:'/ month',best:'A steady pipeline in 1–2 regions',feat:true,f:['Fresh target lists every month','LinkedIn, email and phone outreach','Meetings booked on your calendar','Weekly report']},
  team:{n:'Dedicated Team',p:'Custom',per:'',best:'Firms going all-in on a region',f:['A named BD lead and researcher','Works in your buyers’ time zone','Event and conference support','Monthly review with you']}};
 function planCard(k){const p=PLANS[k];return `<div class="plan ${p.feat?'feat':''}">${p.feat?'<span class="tag">MOST CHOSEN</span>':''}<h3>${p.n}</h3><div class="price">${p.p} <small>${p.per}</small></div><div class="best">${p.best}</div><ul>${p.f.map(x=>`<li><svg><use href="#i-check"/></svg><span>${x}</span></li>`).join('')}</ul><div style="display:grid;gap:8px"><a class="btn ${p.feat?'btn-primary':'btn-ghost'}" href="#contact">${k==='team'?'Talk to us':'Book a call'}</a><span class="ph" style="justify-self:center">price TBC</span></div></div>`}
-$('#homePlans').innerHTML=['sprint','engine','team'].map(planCard).join('');
 $('#pricePlans').innerHTML=['sprint','engine','team'].map(planCard).join('');
 const Y=`<span class="yes"><svg><use href="#i-check"/></svg></span>`,N=`<span class="no"><svg><use href="#i-x"/></svg></span>`;
 const ROWS=[['Checked target list',[1,1,1]],['Rejection log with reasons',[1,1,1]],['Outreach (LinkedIn, email, phone)',[0,1,1]],['Meetings booked for you',[0,1,1]],['Weekly report',[0,1,1]],['Named BD lead',[0,0,1]],['Event support',[0,0,1]]];
 $('#planTable').innerHTML=`<thead><tr><th></th><th>Research Sprint</th><th class="us">Outbound</th><th>Dedicated Team</th></tr></thead><tbody>${ROWS.map(([t,v])=>`<tr><td>${t}</td><td>${v[0]?Y:N}</td><td class="us">${v[1]?Y:N}</td><td>${v[2]?Y:N}</td></tr>`).join('')}</tbody>`;
+
+/* Sector playbooks */
+const PB=[
+ {k:'accounting',n:'Accounting outsourcing',who:'Managing partners at US CPA firms with 10–200 staff, and owners of UK accountancy practices.',
+  sig:[['Hiring','Staff accountant role open for 60+ days'],['Season','More extensions filed than last year'],['Leadership','A partner retiring or a merger announced'],['Tools','Moved to QuickBooks Online or Xero']],
+  rules:['No offshore team already','Partner-level contact found','10+ staff'],
+  open:'Your staff accountant role has been open since August. We handle reconciliations for three Texas firms your size. Worth 15 minutes?'},
+ {k:'data',n:'Data sourcing',who:'Heads of Data and ML leads at AI companies, plus research and e-commerce teams that buy data.',
+  sig:[['Funding','Seed to Series B round in the last 6 months'],['Hiring','Hiring ML or data engineers'],['Product','New model launched or announced'],['Tools','Job posts mention labelling tools']],
+  rules:['In-house ML team','Buys data from outside','20–1,000 staff'],
+  open:'Congrats on the new model release. Teams at that stage often hit a labelling backlog. We can send a 500-item sample before you commit.'},
+ {k:'ai',n:'Agentic AI',who:'COOs and Heads of Operations at companies with 200–2,000 staff in insurance, logistics and healthcare admin.',
+  sig:[['Hiring','5+ open roles for the same back-office task'],['Leadership','New COO, CIO or Head of Automation'],['Tools','Job posts mention RPA or UiPath'],['Budget','Public focus on cost or efficiency']],
+  rules:['High-volume, repetitive workflow','Budget owner named','Not building it in-house'],
+  open:'You’re hiring 14 claims processors this quarter. Our client builds agents that do first-pass claims review, with a person checking each one.'},
+ {k:'saas',n:'SaaS platforms',who:'The buyers your product is built for, found by role, company size and the tools they already use.',
+  sig:[['Tools','Uses a competitor, or a tool you integrate with'],['Hiring','Hiring for the team your product serves'],['Funding','New funding and a growing headcount'],['Timing','Renewal season or a platform switch']],
+  rules:['Fits your stack and size rules','Decision-maker identified','No recent churn from you'],
+  open:'You’re hiring two AP specialists after moving to NetSuite. Teams like yours cut that work in half with our client’s tool. Open to a 20-minute look?'}];
+const PBC={Hiring:'acc',Funding:'pass',Leadership:'sig',Tools:'likely',Season:'sig',Product:'pass',Budget:'likely',Timing:'sig'};
+$('#pbTabs').innerHTML=PB.map((p,i)=>`<button role="tab" type="button" aria-selected="${i===0}" data-pb="${p.k}">${p.n}</button>`).join('');
+function showPB(k){const p=PB.find(x=>x.k===k);$$('#pbTabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.pb===k));
+ $('#pbPanel').innerHTML=`<div class="bento">
+  <div class="tile t3"><span class="eyebrow" style="font-size:.68rem">Who we target</span><p style="color:var(--ink);font-size:1.02rem">${p.who}</p>
+   <span class="eyebrow" style="font-size:.68rem;margin-top:10px">Rules a company must pass</span><div class="regions">${p.rules.map(r=>`<span><i></i>${r}</span>`).join('')}</div></div>
+  <div class="tile t3"><span class="eyebrow" style="font-size:.68rem">Signals we watch</span><ul class="clean" style="display:grid;gap:10px;margin-top:4px">${p.sig.map(([t,x])=>`<li style="display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px"><span class="pill ${PBC[t]}" style="justify-self:start">${t}</span><span class="small">${x}</span></li>`).join('')}</ul></div>
+  <div class="tile t6" style="grid-column:1/-1;background:var(--accent-soft);border-color:var(--accent-line)"><span class="eyebrow" style="font-size:.68rem">How a first message might open · example</span><p style="color:var(--ink);font-family:var(--f-display);font-size:clamp(1.05rem,1.8vw,1.3rem);line-height:1.4;font-weight:500">“${p.open}”</p></div>
+ </div><p class="xs muted" style="margin-top:12px">Other B2B services? We write a new playbook with you in the first call.</p>`}
+$('#pbTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)showPB(b.dataset.pb)});showPB('accounting');
 
 /* Legal */
 const LEGAL={privacy:['Privacy policy',['What we collect','How we use it','Sharing with firms on your shortlist','How long we keep it','Your rights','Contact']],terms:['Terms of use',['Using Galacticbuzz','Briefs and introductions','Liability','Governing law']],vendor:['Terms for firms',['Who can join','Virtual BD plans','Fees and billing','Confidentiality','Ending a plan']]};
@@ -1273,14 +1352,15 @@ function sum(){const set=(id,t,e)=>{const el=$('#'+id);el.textContent=t||e||'—
 ['input','change'].forEach(ev=>mw.addEventListener(ev,()=>{syncCond();sum();$('#m-budget-v').textContent=BUD[$('#m-budget').value]}));
 const W=wizard(mw,{onStep:i=>$('#wizHint').textContent=['Step 1 of 3','Rough answers are fine','Only your shortlist sees this'][i],
  check:i=>{if(i===0&&!val('cat'))return'Choose what you need help with.';if(i===2&&!$('#m-consent').checked)return'Tick the box so we can share your brief with your shortlist.';return''},
- onDone:()=>{const n=$('#m-name').value.trim().split(' ')[0];$('#ty-name').textContent=n?', '+n:'';$('#ty-email').textContent=$('#m-email').value;mw.hidden=true;$('#briefDone').hidden=false;$('#briefBox').scrollIntoView({block:'start'})}});
+ onDone:()=>{const n=$('#m-name').value.trim().split(' ')[0];$('#ty-name').textContent=n?', '+n:'';$('#ty-email').textContent=$('#m-email').value;mw.hidden=true;$('#briefDone').hidden=false;window.scrollTo(0,0)}});
 $('#briefAgain').addEventListener('click',()=>{mw.reset();syncCond();sum();W.show(0);mw.hidden=false;$('#briefDone').hidden=true});
 syncCond();sum();
-const SVCMAP={'bookkeeping':'Bookkeeping','tax preparation':'Tax preparation','payroll':'Payroll','month-end close':'Month-end close','software development':'Custom software','QA & testing':'QA & testing','cloud & DevOps':'Cloud & DevOps','IT support':'IT support'};
+const SVCMAP={'bookkeeping':'Bookkeeping','tax preparation':'Tax preparation','payroll':'Payroll','training data':'Training data','data labelling':'Data labelling','B2B data enrichment':'B2B data enrichment','an AI agent for back-office work':'AI agent for back-office work','workflow automation':'Workflow automation','a SaaS product build':'SaaS product build','QA & testing':'QA & testing','cloud & DevOps':'Cloud & DevOps'};
 const CMAP={'the USA':'USA','the UK':'UK','Canada':'Canada','Australia':'Australia','the UAE':'UAE','another country':'Other'};
-$('#heroBrief').addEventListener('submit',e=>{e.preventDefault();const o=$('#hb-svc').selectedOptions[0];const r=$(`[name=cat][value="${o.dataset.cat}"]`,mw);r.checked=true;
- $$('[name=svc]',mw).forEach(c=>c.checked=false);syncCond();const c=$$('[name=svc]',mw).find(x=>x.value===SVCMAP[o.text]&&!x.closest('[hidden]'));if(c)c.checked=true;
- $('#m-country').value=CMAP[$('#hb-country').value];sum();W.show(1);$('#brief').scrollIntoView({block:'start'});toast('Brief started with your answers.')});
+let pending=null;
+function prefill(o){const r=$(`[name=cat][value="${o.cat}"]`,mw);if(r)r.checked=true;$$('[name=svc]',mw).forEach(c=>c.checked=false);syncCond();
+ const c=$$('[name=svc]',mw).find(x=>x.value===o.svc&&!x.closest('[hidden]'));if(c)c.checked=true;if(o.country)$('#m-country').value=o.country;sum();W.show(1);toast('Brief started with your answers.')}
+$('#heroBrief').addEventListener('submit',e=>{e.preventDefault();const o=$('#hb-svc').selectedOptions[0];pending={cat:o.dataset.cat,svc:SVCMAP[o.text],country:CMAP[$('#hb-country').value]};location.hash='brief'});
 
 /* Slots + call form */
 let slot='';
@@ -1304,7 +1384,7 @@ function fit(sel){const cs=getComputedStyle(sel);cv.font=cs.fontWeight+' '+cs.fo
 const fitAll=()=>$$('.sentence select').forEach(fit);document.addEventListener('change',e=>{if(e.target.matches('.sentence select'))fit(e.target)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);
 
 /* Notes + pages */
-const PAGES=[['home','Home · Virtual BD','/'],['find','Find a partner','/find-a-partner'],['pricing','Pricing','/pricing'],['about','About','/about'],['contact','Book a call','/contact'],['legal','Legal','/privacy, /terms']];
+const PAGES=[['home','Firms · Virtual BD (home)','/'],['services','Firms · Services & pricing','/services'],['find','Buyers · Find a partner','/find-a-partner'],['brief','Buyers · Start a brief','/brief'],['about','About','/about'],['contact','Book a call','/contact'],['legal','Legal','/privacy, /terms']];
 const pp=$('#pagesPanel');pp.innerHTML='<h6>All pages ('+PAGES.length+')</h6>'+PAGES.map(([h,n,u])=>`<a href="#${h}" data-pg="${h}"><span>${n}</span><code>${u}</code></a>`).join('');
 $('#pagesBtn').addEventListener('click',e=>{pp.hidden=!pp.hidden;e.currentTarget.setAttribute('aria-expanded',!pp.hidden)});pp.addEventListener('click',e=>{if(e.target.closest('a'))pp.hidden=true});
 const nb=$('#notesBtn');function setNotes(on){document.body.classList.toggle('notes',on);nb.setAttribute('aria-pressed',on);store.set('gb-notes',on)}nb.addEventListener('click',()=>setNotes(!document.body.classList.contains('notes')));setNotes(!!store.get('gb-notes'));
@@ -1315,7 +1395,9 @@ function route(){let h=(location.hash||'#home').slice(1)||'home',target=null;
  if(!IDS.includes(h)){const el=document.getElementById(h);if(el&&el.closest('.page')){target=el;h=el.closest('.page').id.slice(2)}else h='home'}
  $$('.page').forEach(p=>p.classList.toggle('on',p.id==='p-'+h));$$('[data-nav]').forEach(a=>a.classList.toggle('on',a.dataset.nav===h));$$('[data-pg]').forEach(a=>a.classList.toggle('on',a.dataset.pg===h));
  const sb=$('#mStickyBtn');if(h==='find'){sb.textContent='Start your brief';sb.href='#brief'}else{sb.textContent='Book a call';sb.href='#contact'}
- document.body.classList.toggle('no-sticky',h==='contact');
+ document.body.classList.toggle('no-sticky',h==='contact'||h==='brief');
+ $$('[data-nav-grp]').forEach(b=>b.classList.toggle('on',(b.dataset.navGrp==='firms'&&(h==='home'||h==='services'))||(b.dataset.navGrp==='buyers'&&(h==='find'||h==='brief'))));
+ if(h==='brief'&&pending){prefill(pending);pending=null}
  if(target)setTimeout(()=>target.scrollIntoView({block:'start'}),30);else window.scrollTo(0,0);setTimeout(fitAll,0)}
 addEventListener('hashchange',route);route();
 })();
