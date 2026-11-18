@@ -1,13 +1,13 @@
-first_name,last_name,title,firm,city,state,firm_website,est_size,email,source_url,notes
-Daniel,Kittell,Managing Partner,MKR CPAs & Advisors,Indianapolis,IN,mkrcpas.com,~10,,https://mkrcpas.com/people/daniel-l-kittell-cpa/,Firm says it has about ten people
-Stephen,Reed,Partner,MKR CPAs & Advisors,Indianapolis,IN,mkrcpas.com,~10,,https://mkrcpas.com/taxposition/partners/,
-Michael,Jamison,President & CEO,OnTarget CPA,Indianapolis,IN,ontargetcpa.com,unknown (small),,https://ontargetcpa.com/aboutus/,
-Marty,James,Managing Director,Martin James CPAs (Modern Wealth Management),Indianapolis,IN,modwm.com,unknown,,https://www.modwm.com/indianapolis-outsourced-accounting-and-tax-services/,Now part of a wealth management firm - lower priority
-Adam,Boatsman,Managing Partner,BGW CPA PLLC,Charlotte,NC,,10-49 (Clutch),,https://capitalanalyticsassociates.com/?p=66894,
-Nesha,Pai,Founder,Pai CPA PLLC,Charlotte,NC,,unknown (small),,https://www.prweb.com/releases/pai_cpa_pllc_forms_strategic_partnership_with_jlpollackcpa_pllc/prweb16589443.htm,Woman-owned; outsourced accounting dept for small businesses
-Emily,Fisher,Owner (CPA),Fisher P.A.,Charlotte,NC,,unknown (boutique),,https://www.axios.com/local/charlotte/sponsored/this-boutique-accounting-firm-is-transforming-the-way-charlotte-businesses-operate-heres-how-228829,
-Brittany,Lanphier,Partner (verify title),Lanphier LLP,Denver,CO,,unknown (small),,https://acachamp.cpaacademy.org/instructors/Brittany-Lanphier,Title not confirmed
-Randy,Brammer,Designated Managing Partner,WPD CPA,Phoenix,AZ,wpdcpa.com,unknown,,https://www.wpdcpa.com/randy-g-brammer-cpa-designated-managing-partner/,Became managing partner 2021
-Shayne,Neuwirth,Managing Partner,Shayne R. Neuwirth CPA,Scottsdale,AZ,,unknown (small),,https://issuu.com/azbigmedia/docs/ranking_arizona_2022_issuu/s/15047967,Source is a 2022 ranking - verify current
-Monica,Stern,Managing Partner,Monica J. Stern CPA,Phoenix,AZ,,unknown (small),,https://issuu.com/azbigmedia/docs/ranking_arizona_2022_issuu/s/15047967,Source is a 2022 ranking - verify current; nonprofit focus
-Maria,Rollins,Managing Partner,KRS CPAs,Paramus,NJ,,unknown,,https://njbiz.com/presenting-the-2024-njbiz-accounting-power-50/2024-accounting-power-50-i-z,Source is 2024 list - verify size under 100
+first_name,last_name,title,firm,city,state,firm_website,est_size,email,firm_general_email,email_format_hint,source_url,notes
+Daniel,Kittell,Managing Partner,MKR CPAs & Advisors,Indianapolis,IN,mkrcpas.com,~10,,info@mkrcpas.com,"first initial + last name (unverified, per prospecting site)",https://mkrcpas.com/people/daniel-l-kittell-cpa/,Firm says it has about ten people
+Stephen,Reed,Partner,MKR CPAs & Advisors,Indianapolis,IN,mkrcpas.com,~10,,info@mkrcpas.com,first initial + last name (unverified),https://mkrcpas.com/taxposition/partners/,
+Michael,Jamison,President & CEO,OnTarget CPA,Indianapolis,IN,ontargetcpa.com,unknown (small),,,first initial or first name @ontargetcpa.com (unverified),https://ontargetcpa.com/aboutus/,
+Marty,James,Managing Director,Martin James CPAs (Modern Wealth Management),Indianapolis,IN,modwm.com,unknown,,,,https://www.modwm.com/indianapolis-outsourced-accounting-and-tax-services/,Now part of a wealth management firm - lower priority
+Adam,Boatsman,Managing Partner,BGW CPA PLLC,Charlotte,NC,,10-49 (Clutch),,,,https://capitalanalyticsassociates.com/?p=66894,
+Nesha,Pai,Founder,Pai CPA PLLC,Charlotte,NC,,unknown (small),,,,https://www.prweb.com/releases/pai_cpa_pllc_forms_strategic_partnership_with_jlpollackcpa_pllc/prweb16589443.htm,Woman-owned; outsourced accounting dept for small businesses
+Emily,Fisher,Owner (CPA),Fisher P.A.,Charlotte,NC,,unknown (boutique),,,,https://www.axios.com/local/charlotte/sponsored/this-boutique-accounting-firm-is-transforming-the-way-charlotte-businesses-operate-heres-how-228829,
+Brittany,Lanphier,Partner (verify title),Lanphier LLP,Denver,CO,,unknown (small),,,,https://acachamp.cpaacademy.org/instructors/Brittany-Lanphier,Title not confirmed
+Randy,Brammer,Designated Managing Partner,WPD CPA,Phoenix,AZ,wpdcpa.com,unknown,,info@wpdcpa.com,"first initial + last name, e.g. jdoe@wpdcpa.com (unverified)",https://www.wpdcpa.com/randy-g-brammer-cpa-designated-managing-partner/,Became managing partner 2021
+Shayne,Neuwirth,Managing Partner,Shayne R. Neuwirth CPA,Scottsdale,AZ,,unknown (small),,,,https://issuu.com/azbigmedia/docs/ranking_arizona_2022_issuu/s/15047967,Source is a 2022 ranking - verify current
+Monica,Stern,Managing Partner,Monica J. Stern CPA,Phoenix,AZ,,unknown (small),,,,https://issuu.com/azbigmedia/docs/ranking_arizona_2022_issuu/s/15047967,Source is a 2022 ranking - verify current; nonprofit focus
+Maria,Rollins,Managing Partner,KRS CPAs,Paramus,NJ,,unknown,,,,https://njbiz.com/presenting-the-2024-njbiz-accounting-power-50/2024-accounting-power-50-i-z,Source is 2024 list - verify size under 100
